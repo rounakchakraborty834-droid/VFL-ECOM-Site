@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Products | VFL Rural Store</title>
+  <style>
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #111111;
+      padding: 12px 20px;
+      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+    }
+
+    nav a {
+      color: #d4af37;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #d4af37;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .item {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      background-color: #111111;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #d4af37;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .item img {
+      width: 100px;
+      height: auto;
+      margin-right: 15px;
+      border-radius: 8px;
+      border: 2px solid #d4af37;
+    }
+
+    label {
+      width: 250px;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 6px;
+      margin-right: 10px;
+      border-radius: 6px;
+      border: 1px solid #d4af37;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    button {
+      background-color: #d4af37;
+      color: #000000;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b8860b;
+      color: #ffffff;
+    }
+
+    .checkout-btn {
+      display: block;
+      margin: 40px auto 0;
+      background-color: #d4af37;
+      color: #000000;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      transition: background-color 0.3s ease;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .checkout-btn:hover {
+      background-color: #b8860b;
+      color: #ffffff;
+    }
+
+    footer {
+      background-color: #111111;
+      color: #d4af37;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 -2px 6px rgba(212, 175, 55, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="products.html">Products</a>
+    <a href="services.html">Services</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+
+  <section>
+    <h1>Our Products</h1>
+    <div id="productList"></div>
+    <a href="cart.html" class="checkout-btn">🛒 View Cart</a>
+  </section>
+
+  <footer>
+    <p>VFL Product and Service </p>
+  </footer>
+
+  <script>
+    const products = [
+      ["Herbal Immunity Mix", 120, "images/herbal.jpg"],
+      ["Ayurvedic Pain Balm", 85, "images/immunity-mix.jpg"],
+      ["Organic Soap", 60, "images/herbal.jpg"],
+      ["Handwoven Baby Blanket", 250, "images/child blanket.jpg"],
+      ["Natural Baby Oil", 180, "images/immunity-mix.jpg"],
+      ["Reusable Cloth Diapers", 200, "images/herbal.jpg"],
+      ["1L Bottled Water", 15, "images/herbal.jpg"],
+      ["5L Mineral Water Can", 60, "images/child blanket.jpg"],
+      ["Copper Water Bottle", 350, "copper-bottle.jpg"],
+      ["Bamboo Toothbrush", 40, "bamboo-toothbrush.jpg"],
+      ["Reusable Grocery Bags", 75, "grocery-bags.jpg"],
+      ["Compost Kit", 300, "compost-kit.jpg"],
+      ["Terracotta Masks", 150, "terracotta-mask.jpg"],
+      ["Tribal Jewelry Set", 220, "tribal-jewelry.jpg"],
+      ["Hand-painted Wall Art", 400, "wall-art.jpg"],
+      ["Forest Honey (250g)", 180, "forest-honey.jpg"],
+      ["Mahua Flower Tea", 90, "mahua-tea.jpg"],
+      ["Handcrafted Basket", 250, "basket.jpg"],
+      ["DIY Solar Lamp Kit", 320, "solar-lamp.jpg"],
+      ["Basic Coding Booklet", 150, "coding-booklet.jpg"],
+      ["Math Puzzle Cards", 100, "math-puzzle.jpg"],
+      ["Mosquito Net", 180, "mosquito-net.jpg"],
+      ["Emergency First Aid Kit", 350, "first-aid.jpg"],
+      ["Water Purifier Straw", 120, "purifier-straw.jpg"],
+      ["Babyhug Stacking Cups", 130, "stacking-cups.jpg"],
+      ["Ratnas Jumbo Stacking Rings", 150, "stacking-rings.jpg"],
+      ["Tinyvers Activity Kit", 220, "activity-kit.jpg"],
+      ["PlayBees Kids Speaker", 300, "kids-speaker.jpg"],
+      ["Giggles My First Easel", 350, "easel.jpg"],
+      ["Cognitive Development Kit", 280, "cognitive-kit.jpg"],
+      ["Horlicks Women’s Plus", 210, "horlicks-women.jpg"],
+      ["OZiva HerBalance for PCOS", 390, "oziva-pcos.jpg"],
+      ["Safed Musli Capsules", 250, "musli-capsules.jpg"],
+      ["Tiens Airiz Sanitary Pads", 180, "sanitary-pads.jpg"]
+      ["Water Purifier (RO / UV Filter)", 1200, "water-purifier.jpg"],
+["Mineral Water Bottle", 20, "mineral-water.jpg"],
+["Water Dispenser", 850, "water-dispenser.jpg"],
+["Water Filter Cartridge", 150, "filter-cartridge.jpg"],
+["Smart Water Bottle (with hydration tracker)", 499, "smart-bottle.jpg"],
+["Water Testing Kit", 199, "water-testing.jpg"],
+["Rainwater Harvesting System", 2500, "rainwater-harvest.jpg"],
+["Water Storage Tank", 1800, "water-tank.jpg"],
+["Portable Water Filter / Lifestraw", 350, "lifestraw.jpg"],
+["Alkaline Water Pitcher", 600, "alkaline-pitcher.jpg"],
+["Reusable Water Bottle", 99, "reusable-bottle.jpg"],
+["Jute / Cloth Shopping Bag", 75, "cloth-bag.jpg"],
+["Solar Lamp / Charger", 450, "solar-lamp.jpg"],
+["Bamboo Toothbrush", 40, "bamboo-toothbrush.jpg"],
+["Organic Soap / Shampoo Bar", 60, "organic-soap.jpg"],
+["Recycled Paper Notebook", 55, "recycled-notebook.jpg"],
+["LED Bulb (Energy Saver)", 120, "led-bulb.jpg"],
+["Compost Bin", 300, "compost-bin.jpg"],
+["Eco-friendly Detergent", 180, "eco-detergent.jpg"],
+["Steel / Glass Lunch Box", 250, "lunch-box.jpg"],
+["Traditional Handicrafts", 400, "handicrafts.jpg"],
+["Folk Art Paintings (e.g., Madhubani, Warli)", 350, "folk-art.jpg"],
+["Ethnic Handloom Clothes", 600, "handloom-clothes.jpg"],
+["Handmade Jewellery", 220, "handmade-jewellery.jpg"],
+["Cultural Souvenir Items", 180, "souvenirs.jpg"],
+["Local Musical Instruments", 500, "musical-instruments.jpg"],
+["Traditional Pottery", 300, "pottery.jpg"],
+["Regional Spices & Pickles", 150, "spices-pickles.jpg"],
+["Heritage Books & Postcards", 120, "heritage-books.jpg"],
+["Local Art Display Frames", 280, "art-frames.jpg"],
+["Tribal Handicrafts", 350, "tribal-handicrafts.jpg"],
+["Organic Honey & Forest Products", 200, "forest-products.jpg"],
+["Bamboo Furniture", 1200, "bamboo-furniture.jpg"],
+["Tribal Jewellery", 250, "tribal-jewellery.jpg"],
+["Herbal Medicines", 180, "herbal-medicines.jpg"],
+["Handwoven Baskets", 220, "woven-baskets.jpg"],
+["Tribal Art Paintings", 400, "tribal-art.jpg"],
+["Traditional Tribal Attire", 650, "tribal-attire.jpg"],
+["Millets & Local Grains", 90, "millets.jpg"],
+["Natural Dyes & Colors", 160, "natural-dyes.jpg"],
+["Coding Kits for Kids", 499, "coding-kits.jpg"],
+["Robotics Kits", 1200, "robotics-kits.jpg"],
+["Laptops / Tablets for Learning", 15000, "learning-laptop.jpg"],
+["Online Learning App Subscription", 999, "learning-app.jpg"],
+["STEM Educational Toys", 699, "stem-toys.jpg"],
+["3D Printing Equipment", 18000, "3d-printer.jpg"],
+["Virtual Reality Headset for Learning", 8500, "vr-headset.jpg"],
+["Smart Classroom Tools", 2500, "smart-tools.jpg"],
+["Digital Whiteboard", 9500, "whiteboard.jpg"],
+["AI Learning Software", 1200, "ai-software.jpg"],
+["Local Handmade Goods", 300, "local-goods.jpg"],
+["Farmer-Fresh Vegetables / Fruits", 150, "fresh-produce.jpg"],
+["Community Bulletin Board", 800, "bulletin-board.jpg"],
+["Local Business Products (candles, soaps, etc.)", 180, "local-products.jpg"],
+["Handcrafted Furniture", 2200, "handcrafted-furniture.jpg"],
+["Community Newspaper / Magazine", 60, "community-news.jpg"],
+["Local Brand Merchandise", 350, "brand-merch.jpg"],
+["Cooperative Store Items", 250, "cooperative-items.jpg"],
+["Homemade Food Products", 200, "homemade-food.jpg"],
+["Village Handloom Items", 500, "village-handloom.jpg"]
+    ];
+
+    const container = document.getElementById("productList");
+    const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    products.forEach((item, index) => {
+      const existing = cart.find(c => c.name === item[0]);
+      const div = document.createElement("div");
+      div.className = "item";
+
+      div.innerHTML = `
+        <img src="${item[2]}" alt="${item[0]}" />
+        <label>${item[0]} – ₹${item[1]}</label>
+        <div id="controls-${index}">
+          ${existing ? `
+            <input type="number" value="${existing.quantity}" min="1" onchange="updateQuantity('${item[0]}', this.value)" />
+            <button onclick="removeFromCart('${item[0]}')">Remove</button>
+          ` : `
+            <input type="number" id="qty-${index}" value="1" min="1" />
+            <button onclick="addToCart('${item[0]}', ${item[1]}, '${item[2]}', 'qty-${index}', ${index})">Add to Cart</button>
+          `}
+        </div>
+      `;
+
+      container.appendChild(div);
+    });
+
+    function addToCart(name, price, image, qtyId, index) {
+      const quantity = parseInt(document.getElementById(qtyId).value);
+      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ name, price, image, quantity });
+      }
+
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+      renderControls(name, quantity, index);
+    }
+
+    function updateQuantity(name, newQty) {
+      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const item = cart.find(c => c.name === name);
+      if (item) {
+        item.quantity = parseInt(newQty);
+        localStorage.setItem("cartItems", JSON.stringify(cart));
+      }
+    }
+
+    function removeFromCart(name) {
+      let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+      cart = cart.filter(item => item.name !== name);
+            localStorage.setItem("cartItems", JSON.stringify(cart));
+      location.reload();
+    }
+
+    function renderControls(name, quantity, index) {
+      const controls = document.getElementById(`controls-${index}`);
+      controls.innerHTML = `
+        <input type="number" value="${quantity}" min="1" onchange="updateQuantity('${name}', this.value)" />
+        <button onclick="removeFromCart('${name}')">Remove</button>
+      `;
+    }
+    
+  </script>
+</body>
+</html>

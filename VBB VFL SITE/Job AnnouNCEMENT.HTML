@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VFL Products & Services</title>
+  <meta name="description" content="VFL Products & Services — premium business solutions. Contact: 8967412116 | premsk267@gmail.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --card:#0f0f10;
+      --muted:#bfc3c6;
+      --gold:#D4AF37;
+      --accent:#ffffff;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg),#070707);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+      padding-bottom:60px;
+    }
+    a{color:var(--gold);text-decoration:none}
+    header{
+      position:sticky;top:0;background:rgba(5,5,5,0.7);backdrop-filter:blur(6px);z-index:50;
+      padding:14px 28px;border-bottom:1px solid rgba(255,215,0,0.05);
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(135deg,var(--gold),#b58f2f);
+      display:grid;place-items:center;
+      color:#0b0b0b;font-weight:800;font-size:18px;
+    }
+    nav{display:flex;gap:14px}
+    nav a{padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{background:rgba(212,175,55,0.08)}
+
+    .container{max-width:1100px;margin:28px auto;padding:0 20px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03);padding:28px;border-radius:18px}
+    .eyebrow{color:var(--gold);font-weight:700;letter-spacing:0.07em}
+    h1{font-size:34px;margin:10px 0 8px;color:var(--accent)}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .cta{display:flex;gap:12px}
+    .btn{background:transparent;border:1px solid rgba(212,175,55,0.18);padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--gold),#b58f2f);color:#0b0b0b;border:none}
+
+    /* sections */
+    section + section{margin-top:40px}
+    .section-header{display:flex;justify-content:space-between;align-items:center}
+    .small{font-size:14px;color:#9da1a4}
+
+    /* jobs & contact combined */
+    .two-col{display:grid;grid-template-columns:1fr 380px;gap:18px}
+    .contact-card{padding:20px;border-radius:12px;background:linear-gradient(180deg,rgba(212,175,55,0.03),transparent);border:1px solid rgba(212,175,55,0.12)}
+    .contact-list{list-style:none;padding:0;margin:12px 0 0}
+    .contact-list li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+
+    .features{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .feature{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:10px;font-weight:600}
+
+    footer{margin-top:36px;padding:28px;border-top:1px solid rgba(255,255,255,0.02);text-align:center;color:#8f9498}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      header{padding:10px 14px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo(1).png">VFL</div>
+      <div>
+        <div style="font-weight:800;color:var(--accent)">VFL Products & Services</div>
+      </div>
+    </div>
+    <nav>
+      <a href="about.html">Home</a>
+      <a href="contact.html">Jobs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="hero-card">
+        <div class="eyebrow">PREMIUM VFL</div>
+        <h1>Welcome to VFL</h1>
+        <p class="lead">We specialize in providing top-notch products and customized services for individuals and businesses. Premium quality, transparent pricing, and professional support — all under one roof.</p>
+        <div class="cta">
+          <a class="btn primary" href="contact.html">Get in Touch</a>
+          <a class="btn" href="#jobs">View Openings</a>
+        </div>
+
+        <div style="margin-top:18px" class="features">
+          <div class="feature">Premium Support</div>
+          <div class="feature">Fast Response</div>
+          <div class="feature">100% Transparency</div>
+          <div class="feature">Customer Satisfaction</div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="hero-card" style="text-align:center">
+          <div style="font-weight:800;color:var(--gold);font-size:16px">Quick Contact</div>
+          <div style="margin-top:12px;font-size:24px;color:var(--accent);font-weight:800">8967412116</div>
+          <div style="margin-top:6px;color:#c3c6c8">premsk267@gmail.com</div>
+          <div style="margin-top:14px"><a class="btn primary" href="mailto:premsk267@gmail.com">Email Us</a></div>
+        </div>
+
+        <div class="card" style="margin-top:12px;text-align:left;padding:18px;border-radius:12px;background:var(--card)">
+          <div style="font-weight:800;color:var(--accent);">Why choose VFL?</div>
+          <ul style="margin:10px 0 0 18px;color:#aeb2b5">
+            <li>Trusted business solutions</li>
+            <li>Dedicated client support</li>
+            <li>Modern digital approach</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Jobs & Contact -->
+    <section id="jobs">
+      <div class="section-header">
+        <div>
+          <h2 style="margin:0;color:var(--accent)">Jobs & Contact</h2>
+          <div class="small">Join our team or get in touch with us</div>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:16px">
+        <div class="card">
+          <h3 style="color:var(--accent);margin-top:0">We're Hiring — Job Announcements</h3>
+          <p style="margin:6px 0 12px;color:#bdbfbf">Current openings available at VFL. To apply, send your CV to <strong>premsk267@gmail.com</strong> or call <strong>8967412116</strong>.</p>
+
+          <ul style="margin:0 0 12px 18px;">
+            <li><strong>Sales Executive</strong> — Field sales & client handling.</li>
+            <li><strong>Web Designer</strong> — Frontend & store interface design.</li>
+            <li><strong>Technician</strong> — Installation & service support.</li>
+            <li><strong>Customer Manager</strong> — Customer relationship management.</li>
+          </ul>
+
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="btn primary" href="mailto:premsk267@gmail.com?subject=Job%20Application">Apply Now</a>
+            <a class="btn" href="contact.html">Contact HR</a>
+          </div>
+
+          <div style="margin-top:12px;color:#9fa3a6;font-size:13px">Competitive salary + incentives based on performance.</div>
+        </div>
+
+        <aside class="contact-card" id="contact">
+          <div style="font-weight:800;color:var(--gold);">Contact Information</div>
+          <ul class="contact-list">
+            <li><strong>Phone:</strong> <a href="tel:+918967412116">8967412116</a></li>
+            <li><strong>Email:</strong> <a href="mailto:premsk267@gmail.com">premsk267@gmail.com</a></li>
+            <li><strong>Address:</strong> VFL HQ, WEST BENGAL, India</li>
+            <li><strong>Hours:</strong> Mon–Sat · 10:00–18:00 IST</li>
+          </ul>
+
+          <form action="mailto:premsk267@gmail.com" method="post" enctype="text/plain" style="margin-top:12px">
+            <label style="display:block;font-weight:700;margin-bottom:6px">Send a quick message</label>
+            <input name="name" placeholder="Your name" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);margin-bottom:8px" />
+            <input name="email" placeholder="Your email" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);margin-bottom:8px" />
+            <textarea name="message" placeholder="Message" rows="4" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);margin-bottom:8px"></textarea>
+            <div style="display:flex;gap:8px">
+              <button class="btn primary" type="submit">Send</button>
+              <button class="btn" type="reset">Reset</button>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div style="font-weight:700;color:var(--accent)">VFL Products & Services</div>
+      <div style="margin-top:8px">© <span id="year"></span> VFL — All rights reserved</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

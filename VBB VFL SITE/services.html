@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Services | VFL Rural Store</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #111111;
+      padding: 12px 20px;
+      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+    }
+
+    nav a {
+      color: #d4af37;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #d4af37;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .item {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      background-color: #111111;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #d4af37;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .item img {
+      width: 100px;
+      height: auto;
+      margin-right: 15px;
+      border-radius: 8px;
+      border: 2px solid #d4af37;
+    }
+
+    label {
+      width: 300px;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    button {
+      background-color: #d4af37;
+      color: #000000;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b8860b;
+      color: #ffffff;
+    }
+
+    .checkout-btn {
+      display: block;
+      margin: 40px auto 0;
+      background-color: #d4af37;
+      color: #000000;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      transition: background-color 0.3s ease;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .checkout-btn:hover {
+      background-color: #b8860b;
+      color: #ffffff;
+    }
+
+    footer {
+      background-color: #111111;
+      color: #d4af37;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 -2px 6px rgba(212, 175, 55, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="products.html">Products</a>
+    <a href="services.html">Services</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+
+  <section>
+    <h1>Our Services</h1>
+    <div id="serviceList"></div>
+    <a href="cart.html" class="checkout-btn">🛒 View Cart</a>
+  </section>
+
+  <footer>
+    <p>VFL Product and Service | Built with ❤️ for Bharat</p>
+  </footer>
+  <script>
+  const services = [
+    ["Nutrition Consultation & Diet Plan", 350, "images/nut.jpg"],
+    ["Fitness Training Sessions", 400, "images/tutor.jpg"],
+    ["Yoga & Meditation Classes", 300, "images/yoga.jpg"],
+    ["Mindfulness Coaching", 250, "images/diet.jpg"],
+    ["Wellness Spa Therapy", 600, "images/carrer.jpg"],
+    ["Preventive Health Check-up", 500, "images/teacher.jpg"],
+    ["Digital Health App Subscription", 199, "images/carrer.jpg"],
+    ["Corporate Wellness Programme", 800, "images/nut.jpg"],
+    ["Prenatal & Postnatal Care", 550, "images/diet.jpg"],
+    ["Women Nutrition Counseling", 300, "women-nutrition.jpg"],
+    ["Skill Development Training", 450, "skill-training.jpg"],
+    ["Mental Health Counseling", 400, "mental-health.jpg"],
+    ["Women Empowerment Groups", 250, "empowerment.jpg"],
+    ["Child Development Programs", 500, "child-development.jpg"],
+    ["Speech & Occupational Therapy", 450, "speech-therapy.jpg"],
+    ["Parenting Workshops", 300, "parenting.jpg"],
+    ["Early Childhood Education", 400, "early-education.jpg"],
+    ["Culture Website Design", 700, "culture-website.jpg"],
+    ["Online Workshops", 250, "online-workshop.jpg"],
+    ["Digital Archiving", 600, "digital-archiving.jpg"],
+    ["Social Media Campaigns", 350, "social-media.jpg"],
+    ["Community Forums", 200, "forums.jpg"],
+    ["Virtual Event Management", 750, "virtual-event.jpg"],
+    ["Water Purification Service", 1200, "water-purification.jpg"],
+    ["Water Supply Service", 1000, "water-supply.jpg"],
+    ["Rainwater Harvesting Installation", 1500, "rainwater-install.jpg"],
+    ["Wastewater Management", 1300, "wastewater.jpg"],
+    ["Plumbing Maintenance", 900, "plumbing.jpg"],
+    ["Borewell Drilling", 2000, "borewell.jpg"],
+    ["Water Quality Testing", 500, "water-testing.jpg"],
+    ["Irrigation Management", 1100, "irrigation.jpg"],
+    ["Sewage Treatment Plant Service", 2500, "stp-service.jpg"],
+    ["Desalination & Recycling", 2200, "desalination.jpg"],
+    ["Waste Management & Recycling", 1000, "waste-recycling.jpg"],
+    ["Tree Plantation Drive", 300, "tree-plantation.jpg"],
+    ["Solar Panel Installation", 1800, "solar-install.jpg"],
+    ["Clean-Up Campaigns", 200, "cleanup.jpg"],
+    ["Rainwater Harvesting Setup", 1400, "rainwater-setup.jpg"],
+    ["Environmental Workshop", 350, "environmental-workshop.jpg"],
+    ["E-Bike Sharing Service", 800, "ebike-sharing.jpg"],
+    ["Plastic Recycling Center", 1200, "plastic-recycling.jpg"],
+    ["Eco-Tourism Program", 900, "eco-tourism.jpg"],
+    ["Community Gardening", 400, "gardening.jpg"],
+    ["Folk Dance & Music Classes", 600, "folk-dance.jpg"],
+    ["Museum Conservation", 1500, "museum.jpg"],
+    ["Handicraft Training", 500, "handicraft-training.jpg"],
+    ["Traditional Festival Events", 700, "festival-events.jpg"],
+    ["Art Exhibition Platforms", 800, "art-exhibition.jpg"],
+    ["Cultural Exchange Programs", 650, "cultural-exchange.jpg"],
+    ["Language Preservation Classes", 400, "language-preservation.jpg"],
+    ["Local Artisan Marketplaces", 300, "artisan-market.jpg"],
+    ["Storytelling & Folk Theatre", 450, "folk-theatre.jpg"],
+    ["Tribal Skill Development", 500, "tribal-skills.jpg"],
+    ["Handicraft Marketing Support", 350, "handicraft-marketing.jpg"],
+    ["Tribal Education Drives", 400, "tribal-education.jpg"],
+    ["Healthcare Camps in Tribal Areas", 600, "tribal-healthcare.jpg"],
+    ["Forest Product Co-operatives", 500, "forest-coop.jpg"],
+    ["Tribal Tourism Initiatives", 900, "tribal-tourism.jpg"],
+    ["Micro-loans & Financial Inclusion", 300, "microloans.jpg"],
+    ["Tribal Cultural Festivals", 700, "tribal-festivals.jpg"],
+    ["Women Empowerment Workshops", 350, "empowerment-workshops.jpg"],
+    ["NGO Support for Tribal Rights", 400, "ngo-support.jpg"],
+    ["Coding & Robotics Classes", 800, "coding-robotics.jpg"],
+    ["Digital Literacy Programs", 500, "digital-literacy.jpg"],
+    ["Career Counseling Workshops", 600, "career-counseling.jpg"],
+    ["Online Tutoring Platforms", 450, "online-tutoring.jpg"],
+    ["Entrepreneurship Training", 700, "entrepreneurship.jpg"],
+    ["Cyber-Safety Education", 300, "cyber-safety.jpg"],
+    ["Innovation & Startup Labs", 1000, "startup-labs.jpg"],
+    ["Soft-Skills Development", 400, "soft-skills.jpg"],
+    ["AI Bootcamps", 1200, "ai-bootcamp.jpg"],
+    ["E-Learning Course Design", 800, "elearning-design.jpg"],
+    ["Community Cleanliness Drive", 200, "cleanliness-drive.jpg"],
+    ["Local Entrepreneurship Support", 500, "local-entrepreneurship.jpg"],
+    ["Farmer Training Programs", 600, "farmer-training.jpg"],
+    ["Health Camps & Vaccination", 700, "health-camps.jpg"],
+    ["Skill Development Workshops", 500, "skill-workshops.jpg"],
+    ["Local SHG Support", 300, "shg.jpg"],
+    ["Village Wi-Fi Center", 1000, "village-wifi.jpg"],
+    ["Public Library & Learning Center", 800, "library-center.jpg"],
+    ["Community Volunteering Events", 250, "volunteering.jpg"],
+    ["Local Job-Fair Services", 400, "job-fair.jpg"]
+  ];
+
+  const container = document.getElementById("serviceList");
+
+  services.forEach((item, index) => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `
+      <img src="${item[2]}" alt="${item[0]}" />
+      <label>${item[0]} – ₹${item[1]}</label>
+      <button onclick="addToCart('${item[0]}', ${item[1]}, '${item[2]}')">Add to Cart</button>
+    `;
+    container.appendChild(div);
+  });
+  const serviceProviders = {
+  "Nutrition Consultation & Diet Plan": [
+    { name: "Dr. Kavita Sharma", experience: "7 years", charge: 350, duration: "45 mins", distance: "2.1 km" },
+    { name: "Dr. Arjun Mehta", experience: "5 years", charge: 340, duration: "40 mins", distance: "2.8 km" }
+  ],
+  "Fitness Training Sessions": [
+    { name: "Trainer Neha", experience: "6 years", charge: 400, duration: "1 hr", distance: "1.5 km" },
+    { name: "Trainer Rakesh", experience: "4 years", charge: 390, duration: "1 hr", distance: "1.9 km" }
+  ],
+  "Yoga & Meditation Classes": [
+    { name: "Instructor Meera", experience: "8 years", charge: 300, duration: "1 hr", distance: "1.2 km" },
+    { name: "Instructor Dev", experience: "6 years", charge: 290, duration: "1 hr", distance: "1.6 km" }
+  ],
+  "Mindfulness Coaching": [
+    { name: "Coach Priya", experience: "5 years", charge: 250, duration: "45 mins", distance: "2.0 km" },
+    { name: "Coach Aman", experience: "4 years", charge: 240, duration: "45 mins", distance: "2.3 km" }
+  ],
+  "Wellness Spa Therapy": [
+    { name: "Therapist Rina", experience: "10 years", charge: 600, duration: "1.5 hrs", distance: "3.0 km" },
+    { name: "Therapist Mohit", experience: "8 years", charge: 580, duration: "1.5 hrs", distance: "2.7 km" }
+  ],
+  "Preventive Health Check-up": [
+    { name: "Dr. Sneha Patil", experience: "9 years", charge: 500, duration: "1 hr", distance: "2.4 km" },
+    { name: "Dr. Vikram Rao", experience: "7 years", charge: 480, duration: "1 hr", distance: "2.9 km" }
+  ],
+  "Digital Health App Subscription": [
+    { name: "Coach Alok", experience: "6 years", charge: 199, duration: "Monthly", distance: "Online" },
+    { name: "Coach Tanya", experience: "5 years", charge: 189, duration: "Monthly", distance: "Online" }
+  ],
+  "Corporate Wellness Programme": [
+    { name: "Consultant Meena", experience: "10 years", charge: 800, duration: "Half Day", distance: "On-site" },
+    { name: "Consultant Raj", experience: "8 years", charge: 780, duration: "Half Day", distance: "On-site" }
+  ],
+  "Prenatal & Postnatal Care": [
+    { name: "Dr. Ritu Joshi", experience: "12 years", charge: 550, duration: "1 hr", distance: "1.8 km" },
+    { name: "Dr. Manish Verma", experience: "9 years", charge: 530, duration: "1 hr", distance: "2.2 km" }
+  ],
+  "Women Nutrition Counseling": [
+    { name: "Dietitian Nisha", experience: "6 years", charge: 300, duration: "45 mins", distance: "1.5 km" },
+    { name: "Dietitian Kiran", experience: "5 years", charge: 290, duration: "45 mins", distance: "1.9 km" }
+  ],
+  "Skill Development Training": [
+    { name: "Trainer Deepak", experience: "7 years", charge: 450, duration: "2 hrs", distance: "2.0 km" },
+    { name: "Trainer Anjali", experience: "6 years", charge: 430, duration: "2 hrs", distance: "2.4 km" }
+  ],
+  "Mental Health Counseling": [
+    { name: "Psychologist Reena", experience: "8 years", charge: 400, duration: "1 hr", distance: "2.1 km" },
+    { name: "Psychologist Arvind", experience: "7 years", charge: 390, duration: "1 hr", distance: "2.5 km" }
+  ],
+  "Women Empowerment Groups": [
+    { name: "Facilitator Suman", experience: "10 years", charge: 250, duration: "2 hrs", distance: "1.6 km" },
+    { name: "Facilitator Pooja", experience: "9 years", charge: 240, duration: "2 hrs", distance: "1.9 km" }
+  ],
+  "Child Development Programs": [
+    { name: "Educator Neelam", experience: "6 years", charge: 500, duration: "1.5 hrs", distance: "1.3 km" },
+    { name: "Educator Ravi", experience: "5 years", charge: 480, duration: "1.5 hrs", distance: "1.7 km" }
+  ],
+  "Speech & Occupational Therapy": [
+    { name: "Therapist Sneha", experience: "7 years", charge: 450, duration: "1 hr", distance: "2.0 km" },
+    { name: "Therapist Karan", experience: "6 years", charge: 430, duration: "1 hr", distance: "2.3 km" }
+  ],
+  "Parenting Workshops": [
+    { name: "Coach Meena", experience: "8 years", charge: 300, duration: "2 hrs", distance: "1.5 km" },
+    { name: "Coach Sanjay", experience: "7 years", charge: 280, duration: "2 hrs", distance: "1.8 km" }
+  ],
+  "Early Childhood Education": [
+    { name: "Teacher Rina", experience: "6 years", charge: 400, duration: "1 hr", distance: "1.2 km" },
+    { name: "Teacher Mohan", experience: "5 years", charge: 390, duration: "1 hr", distance: "1.6 km" }
+  ],
+  "Culture Website Design": [
+    { name: "Designer Alok", experience: "9 years", charge: 700, duration: "Project", distance: "Online" },
+    { name: "Designer Priya", experience: "8 years", charge: 680, duration: "Project", distance: "Online" }
+  ],
+  "Online Workshops": [
+    { name: "Host Neeraj", experience: "5 years", charge: 250, duration: "1 hr", distance: "Online" },
+    { name: "Host Tanya", experience: "4 years", charge: 240, duration: "1 hr", distance: "Online" }
+  ],
+  "Digital Archiving": [
+    { name: "Archivist Ramesh", experience: "10 years", charge: 600, duration: "Project", distance: "Online" },
+    { name: "Archivist Leela", experience: "9 years", charge: 580, duration: "Project", distance: "Online" }
+  ],
+  "Social Media Campaigns": [
+    { name: "Strategist Rahul", experience: "6 years", charge: 350, duration: "Campaign", distance: "Online" },
+    { name: "Strategist Nidhi", experience: "5 years", charge: 330, duration: "Campaign", distance: "Online" }
+  ],
+  "Community Forums": [
+    { name: "Moderator Suresh", experience: "7 years", charge: 200, duration: "Session", distance: "Online" },
+    { name: "Moderator Anu", experience: "6 years", charge: 190, duration: "Session", distance: "Online" }
+  ],
+  "Virtual Event Management": [
+    { name: "Planner Gaurav", experience: "8 years", charge: 750, duration: "Event", distance: "Online" },
+    { name: "Planner Riya", experience: "7 years", charge: 730, duration: "Event", distance: "Online" }
+  ],
+  "Water Purification Service": [
+    { name: "Engineer Rohit", experience: "10 years", charge: 1200, duration: "4 hrs", distance: "3.5 km" },
+    { name: "Technician Aarti", experience: "8 years", charge: 1150, duration: "4 hrs", distance: "3.2 km" }
+  ],
+  "Water Supply Service": [
+    { name: "Supplier Manoj", experience: "6 years", charge: 1000, duration: "Daily", distance: "2.0 km" },
+    { name: "Supplier Rekha", experience: "5 years", charge: 980, duration: "Daily", distance: "2.3 km" }
+  ],
+  "Rainwater Harvesting Installation": [
+    { name: "Installer Suresh", experience: "9 years", charge: 1500, duration: "6 hrs", distance: "4.1 km" },
+    { name: "Installer Nisha", experience: "7 years", charge: 1450, duration: "5.5 hrs", distance: "3.8 km" }
+  ],
+  "Wastewater Management": [
+    { name: "Engineer Ravi", experience: "10 years", charge: 1300, duration: "5 hrs", distance: "4.5 km" },
+    { name: "Engineer Leela", experience: "8 years", charge: 1250, duration: "5 hrs", distance: "4.0 km" }
+  ],
+  "Plumbing Maintenance": [
+    { name: "Plumber Ramesh", experience: "6 years", charge: 900, duration: "2 hrs", distance: "2.5 km" },
+    { name: "Plumber Seema", experience: "5 years", charge: 880, duration: "2 hrs", distance: "2.8 km" }
+  ],
+  "Borewell Drilling": [
+    { name: "Driller Mahesh", experience: "12 years", charge: 2000, duration: "Full Day", distance: "5.0 km" },
+    { name: "Driller Poonam", experience: "10 years", charge: 1950, duration: "Full Day", distance: "4.7 km" }
+  ],
+  "Water Quality Testing": [
+    { name: "Analyst Neha", experience: "7 years", charge: 500, duration: "1 hr", distance: "2.0 km" },
+    { name: "Analyst Karan", experience: "6 years", charge: 480, duration: "1 hr", distance: "2.3 km" }
+  ],
+  "Irrigation Management": [
+    { name: "Advisor Alok", experience: "9 years", charge: 1100, duration: "3 hrs", distance: "3.5 km" },
+    { name: "Advisor Meena", experience: "8 years", charge: 1050, duration: "3 hrs", distance: "3.2 km" }
+  ],
+  "Sewage Treatment Plant Service": [
+    { name: "Technician Raj", experience: "10 years", charge: 2500, duration: "6 hrs", distance: "5.0 km" },
+    { name: "Technician Anjali", experience: "9 years", charge: 2450, duration: "6 hrs", distance: "4.8 km" }
+  ],
+  "Desalination & Recycling": [
+    { name: "Engineer Mohan", experience: "11 years", charge: 2200, duration: "5 hrs", distance: "4.5 km" },
+    { name: "Engineer Sneha", experience: "10 years", charge: 2150, duration: "5 hrs", distance: "4.2 km" }
+  ],
+  "Waste Management & Recycling": [
+    { name: "Coordinator Ritu", experience: "8 years", charge: 1000, duration: "3 hrs", distance: "2.5 km" },
+    { name: "Coordinator Ajay", experience: "7 years", charge: 980, duration: "3 hrs", distance: "2.8 km" }
+  ],
+  "Tree Plantation Drive": [
+    { name: "Gardener Suman", experience: "5 years", charge: 300, duration: "2 hrs", distance: "1.5 km" },
+    { name: "Gardener Nikhil", experience: "4 years", charge: 280, duration: "2 hrs", distance: "1.8 km" }
+  ],
+  "Solar Panel Installation": [
+    { name: "Installer Gaurav", experience: "10 years", charge: 1800, duration: "6 hrs", distance: "4.0 km" },
+    { name: "Installer Rina", experience: "9 years", charge: 1750, duration: "6 hrs", distance: "3.7 km" }
+  ],
+  "Clean-Up Campaigns": [
+    { name: "Volunteer Meena", experience: "6 years", charge: 200, duration: "2 hrs", distance: "1.2 km" },
+    { name: "Volunteer Rajesh", experience: "5 years", charge: 180, duration: "2 hrs", distance: "1.5 km" }
+  ],
+  "Rainwater Harvesting Setup": [
+    { name: "Engineer Suresh", experience: "9 years", charge: 1400, duration: "5 hrs", distance: "4.2 km" },
+    { name: "Engineer Kavita", experience: "7 years", charge: 1350, duration: "5 hrs", distance: "3.9 km" }
+  ],
+  "Environmental Workshop": [
+    { name: "Trainer Nidhi", experience: "6 years", charge: 350, duration: "2 hrs", distance: "2.0 km" },
+    { name: "Trainer Ajay", experience: "5 years", charge: 330, duration: "2 hrs", distance: "2.3 km" }
+  ],
+  "E-Bike Sharing Service": [
+    { name: "Operator Ramesh", experience: "4 years", charge: 800, duration: "Daily", distance: "2.0 km" },
+    { name: "Operator Seema", experience: "3 years", charge: 780, duration: "Daily", distance: "2.2 km" }
+  ],
+  "Plastic Recycling Center": [
+    { name: "Manager Neeraj", experience: "7 years", charge: 1200, duration: "Project", distance: "3.0 km" },
+    { name: "Manager Priya", experience: "6 years", charge: 1150, duration: "Project", distance: "2.8 km" }
+  ],
+  "Eco-Tourism Program": [
+    { name: "Guide Ratan", experience: "8 years", charge: 900, duration: "Half Day", distance: "5.0 km" },
+    { name: "Guide Mala", experience: "7 years", charge: 880, duration: "Half Day", distance: "4.7 km" }
+  ],
+  "Community Gardening": [
+    { name: "Gardener Alok", experience: "5 years", charge: 400, duration: "2 hrs", distance: "1.5 km" },
+    { name: "Gardener Sneha", experience: "4 years", charge: 380, duration: "2 hrs", distance: "1.8 km" }
+  ],
+  "Water Purification Service": [
+    { name: "Engineer Rohit", experience: "10 years", charge: 1200, duration: "4 hrs", distance: "3.5 km" },
+    { name: "Technician Aarti", experience: "8 years", charge: 1150, duration: "4 hrs", distance: "3.2 km" }
+  ],
+  "Water Supply Service": [
+    { name: "Supplier Manoj", experience: "6 years", charge: 1000, duration: "Daily", distance: "2.0 km" },
+    { name: "Supplier Rekha", experience: "5 years", charge: 980, duration: "Daily", distance: "2.3 km" }
+  ],
+  "Rainwater Harvesting Installation": [
+    { name: "Installer Suresh", experience: "9 years", charge: 1500, duration: "6 hrs", distance: "4.1 km" },
+    { name: "Installer Nisha", experience: "7 years", charge: 1450, duration: "5.5 hrs", distance: "3.8 km" }
+  ],
+  "Wastewater Management": [
+    { name: "Engineer Ravi", experience: "10 years", charge: 1300, duration: "5 hrs", distance: "4.5 km" },
+    { name: "Engineer Leela", experience: "8 years", charge: 1250, duration: "5 hrs", distance: "4.0 km" }
+  ],
+  "Plumbing Maintenance": [
+    { name: "Plumber Ramesh", experience: "6 years", charge: 900, duration: "2 hrs", distance: "2.5 km" },
+    { name: "Plumber Seema", experience: "5 years", charge: 880, duration: "2 hrs", distance: "2.8 km" }
+  ],
+  "Borewell Drilling": [
+    { name: "Driller Mahesh", experience: "12 years", charge: 2000, duration: "Full Day", distance: "5.0 km" },
+    { name: "Driller Poonam", experience: "10 years", charge: 1950, duration: "Full Day", distance: "4.7 km" }
+  ],
+  "Water Quality Testing": [
+    { name: "Analyst Neha", experience: "7 years", charge: 500, duration: "1 hr", distance: "2.0 km" },
+    { name: "Analyst Karan", experience: "6 years", charge: 480, duration: "1 hr", distance: "2.3 km" }
+  ],
+  "Irrigation Management": [
+    { name: "Advisor Alok", experience: "9 years", charge: 1100, duration: "3 hrs", distance: "3.5 km" },
+    { name: "Advisor Meena", experience: "8 years", charge: 1050, duration: "3 hrs", distance: "3.2 km" }
+  ],
+  "Sewage Treatment Plant Service": [
+    { name: "Technician Raj", experience: "10 years", charge: 2500, duration: "6 hrs", distance: "5.0 km" },
+    { name: "Technician Anjali", experience: "9 years", charge: 2450, duration: "6 hrs", distance: "4.8 km" }
+  ],
+  "Desalination & Recycling": [
+    { name: "Engineer Mohan", experience: "11 years", charge: 2200, duration: "5 hrs", distance: "4.5 km" },
+    { name: "Engineer Sneha", experience: "10 years", charge: 2150, duration: "5 hrs", distance: "4.2 km" }
+  ],
+  "Waste Management & Recycling": [
+    { name: "Coordinator Ritu", experience: "8 years", charge: 1000, duration: "3 hrs", distance: "2.5 km" },
+    { name: "Coordinator Ajay", experience: "7 years", charge: 980, duration: "3 hrs", distance: "2.8 km" }
+  ],
+  "Tree Plantation Drive": [
+    { name: "Gardener Suman", experience: "5 years", charge: 300, duration: "2 hrs", distance: "1.5 km" },
+    { name: "Gardener Nikhil", experience: "4 years", charge: 280, duration: "2 hrs", distance: "1.8 km" }
+  ],
+  "Solar Panel Installation": [
+    { name: "Installer Gaurav", experience: "10 years", charge: 1800, duration: "6 hrs", distance: "4.0 km" },
+    { name: "Installer Rina", experience: "9 years", charge: 1750, duration: "6 hrs", distance: "3.7 km" }
+  ],
+  "Clean-Up Campaigns": [
+    { name: "Volunteer Meena", experience: "6 years", charge: 200, duration: "2 hrs", distance: "1.2 km" },
+    { name: "Volunteer Rajesh", experience: "5 years", charge: 180, duration: "2 hrs", distance: "1.5 km" }
+  ],
+  "Rainwater Harvesting Setup": [
+    { name: "Engineer Suresh", experience: "9 years", charge: 1400, duration: "5 hrs", distance: "4.2 km" },
+    { name: "Engineer Kavita", experience: "7 years", charge: 1350, duration: "5 hrs", distance: "3.9 km" }
+  ],
+  "Environmental Workshop": [
+    { name: "Trainer Nidhi", experience: "6 years", charge: 350, duration: "2 hrs", distance: "2.0 km" },
+    { name: "Trainer Ajay", experience: "5 years", charge: 330, duration: "2 hrs", distance: "2.3 km" }
+  ],
+  "E-Bike Sharing Service": [
+    { name: "Operator Ramesh", experience: "4 years", charge: 800, duration: "Daily", distance: "2.0 km" },
+    { name: "Operator Seema", experience: "3 years", charge: 780, duration: "Daily", distance: "2.2 km" }
+  ],
+  "Plastic Recycling Center": [
+    { name: "Manager Neeraj", experience: "7 years", charge: 1200, duration: "Project", distance: "3.0 km" },
+    { name: "Manager Priya", experience: "6 years", charge: 1150, duration: "Project", distance: "2.8 km" }
+  ],
+  "Eco-Tourism Program": [
+    { name: "Guide Ratan", experience: "8 years", charge: 900, duration: "Half Day", distance: "5.0 km" },
+    { name: "Guide Mala", experience: "7 years", charge: 880, duration: "Half Day", distance: "4.7 km" }
+  ],
+  "Community Gardening": [
+    { name: "Gardener Alok", experience: "5 years", charge: 400, duration: "2 hrs", distance: "1.5 km" },
+    { name: "Gardener Sneha", experience: "4 years", charge: 380, duration: "2 hrs", distance: "1.8 km" }
+  ]
+};
+
+function addToCart(name, price, image) {
+    const providers = serviceProviders[name];
+    if (!providers) {
+      alert(`${name} added to cart`);
+      saveToCart(name, price, image);
+      return;
+    }
+
+    let profileHTML = `<h3 style="color:#d4af37;">Select a Service Provider for "${name}"</h3>`;
+    providers.forEach((p) => {
+      profileHTML += `
+        <div style="background:#111; color:#fff; border:1px solid #d4af37; padding:15px; margin:15px 0; border-radius:12px;">
+          <p><strong>${p.name}</strong></p>
+          <p>🧠 Experience: ${p.experience}</p>
+          <p>💰 Charge: ₹${p.charge}</p>
+          <p>⏱ Duration: ${p.duration}</p>
+          <p>📍 Distance: ${p.distance}</p>
+          <button style="background:#d4af37; color:#000; padding:8px 16px; border:none; border-radius:30px; cursor:pointer;"
+            onclick="confirmProvider('${name}', ${p.charge}, '${image}', '${p.name}')">
+            Choose ${p.name}
+          </button>
+        </div>
+      `;
+    });
+
+    container.innerHTML = profileHTML;
+  }
+
+  function confirmProvider(serviceName, charge, image, providerName) {
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    cart.push({
+      name: `${serviceName} (${providerName})`,
+      price: charge,
+      image: image,
+      quantity: 1
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+    alert(`Service "${serviceName}" by ${providerName} added to cart`);
+    location.reload();
+  }
+
+  function saveToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ name, price, image, quantity: 1 });
+    }
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+  }
+</script>
+</body>
+</html>
